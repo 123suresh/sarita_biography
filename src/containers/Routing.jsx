@@ -11,9 +11,9 @@ function Routing() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<HomePage />} />
+        {/* <Route exact path="/" element={<HomePage />} /> */}
         <Route element={<PrivateRoute />}>
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
           {/* <Route path="/movie/:movieId" element={<MovieDetail />} /> */}
           <Route path="/detail" element={<DetailPage />} />
           <Route path="/awards" element={<AwardPage />} />
