@@ -64,13 +64,13 @@ const ResponsiveAppBar = () => {
     <div className={classes.navbar__main}>
       <div className={classes.link_set}>
         <Link
-          onClick={() => handleActiveLink("home")}
+          onClick={() => handleActiveLink("")}
           className={`${classes.link} ${
-            window.location.pathname === "/home"
+            window.location.pathname === "/"
               ? classes.active__link
               : ""
           }`}
-          to="/home"
+          to="/"
         >
           Biography
         </Link>
