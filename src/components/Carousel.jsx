@@ -17,11 +17,10 @@ export default function EmblaCarousel({images}) {
   return (
     <div className="embla" ref={emblaRef}>
       <div className="embla__container">
-        s
         {images.map((img,i)=>
 
         <div key={i} className="embla__slide">
-            <img src={img}/>
+            <img src={img} width="50%" height="100%"/>
         </div>
         )}
       </div>

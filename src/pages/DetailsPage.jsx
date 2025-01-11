@@ -1,292 +1,104 @@
-import React from "react";
-import { Grid, Divider } from "@mui/material";
+import React, { useState } from "react";
+import { Grid, Typography, Button, Box, Pagination } from "@mui/material";
+import MovieFrame from "../components/MovieFrame";
 
-import { Slide } from "react-slideshow-image";
-import "react-slideshow-image/dist/styles.css";
-import EmblaCarousel from "../components/Carousel";
-
-const spanStyle = {
-  padding: "20px",
-  background: "#efefef",
-  // color: "#000000",
+const sections = {
+  "Feature Films": [
+    { title: "Santanko Maya", image: "/images/Featured-Films/img1.jpg", description: "A love story that captures the essence of timeless emotions." },
+    { title: "Shreeman Shreemati", image: "/images/Featured-Films/img2.jpeg", description: "A hilarious tale of a married couple’s misadventures." },
+    { title: "Love Forever", image: "/images/Featured-Films/img3.jpg", description: "A timeless classic about love and perseverance." },
+    { title: "Kalo Dhan", image: "/images/Featured-Films/img4.jpg", description: "A suspenseful short movie about hidden wealth and the chaos it causes." },
+    { title: "Surakshya", image: "/images/Featured-Films/img5.jpg", description: "A drama focused on the importance of family security and values." },
+    { title: "Dristi", image: "/images/Featured-Films/img6.jpg", description: "An ongoing mega serial aired on Ramilo HD, capturing hearts across Nepal." },
+    { title: "Parichaya", image: "/images/Featured-Films/img7.jpg", description: "A record-breaking TV serial with the highest TRP on NTV." },
+    { title: "Sapana Ko Sansar", image: "/images/Featured-Films/img8.jpg", description: "A dreamlike journey of self-discovery and ambition." },
+    { title: "The Secret", image: "/images/Featured-Films/img9.jpg", description: "A gripping mystery that keeps you on the edge of your seat." },
+  ],
+  "Short Movies": [],
+  "TV Serials": [],
 };
 
-const divStyle = {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  backgroundSize: "cover",
-  height: "400px",
-};
-const slideImages = [
-  {
-    url: "https://images.unsplash.com/photo-1509721434272-b79147e0e708?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
-    // caption: 'Slide 1'
-  },
-  {
-    url: "https://images.unsplash.com/photo-1506710507565-203b9f24669b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1536&q=80",
-    // caption: 'Slide 2'
-  },
-  {
-    url: "https://images.unsplash.com/photo-1536987333706-fc9adfb10d91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
-    // caption: 'Slide 3'
-  },{
-    url: "https://images.unsplash.com/photo-1536987333706-fc9adfb10d91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
-    // caption: 'Slide 3'
-  },{
-    url: "https://images.unsplash.com/photo-1536987333706-fc9adfb10d91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
-    // caption: 'Slide 3'
-  },{
-    url: "https://images.unsplash.com/photo-1536987333706-fc9adfb10d91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
-    // caption: 'Slide 3'
-  },{
-    url: "https://images.unsplash.com/photo-1536987333706-fc9adfb10d91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
-    // caption: 'Slide 3'
-  },
-];
+const DetailPage = () => {
+  const [activeSection, setActiveSection] = useState("Feature Films");
+  const [openDescriptionIndex, setOpenDescriptionIndex] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
 
-function DetailPage() {
+  const handleToggleDescription = (index) => {
+    setOpenDescriptionIndex((prevIndex) => (prevIndex === index ? null : index));
+  };
+
+  const handlePageChange = (event, page) => {
+    setCurrentPage(page);
+    setOpenDescriptionIndex(null);
+  };
+
+  const displayedItems = sections[activeSection].slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  const totalPages = Math.ceil(sections[activeSection].length / itemsPerPage);
+
   return (
-    <div
-      style={{
-        paddingLeft: "80px",
-        paddingRight: "80px",
-        color: "white",
+    <Box
+      sx={{
+        padding: "20px 10%",
+        color: "#fff",
+        backgroundColor: "#212431",
+        minHeight: "100vh",
       }}
     >
-      <Grid
-        container
-        spacing={3}
-        direction="column"
-        justifyContent="space-between"
-        alignItems="center"
-        style={{ padding: "30px", color: "black" }}
-      >
-        <Grid item>
-          <Grid container spacing={3} alignItems="center">
-            <Grid item>
-              <Divider
-                sx={{
-                  width: "100%",
-                  borderColor: "white",
-                  borderBottomWidth: 2,
-                }}
-              />
-            </Grid>
-            <Grid item style={{ fontSize: "25px" }}>
-              Feature Films
-            </Grid>
-            <Grid item>
-              <Divider
-                sx={{
-                  width: "100%",
-                  borderColor: "white",
-                  borderBottomWidth: 2,
-                }}
-              />
-            </Grid>
+      {/* Section Selector Buttons */}
+      <Box sx={{ display: "flex", justifyContent: "center", gap: "20px", marginBottom: "30px" }}>
+        {Object.keys(sections).map((section) => (
+          <Button
+            key={section}
+            variant="contained"
+            onClick={() => {
+              setActiveSection(section);
+              setCurrentPage(1);
+              setOpenDescriptionIndex(null);
+            }}
+            sx={{
+              backgroundColor: activeSection === section ? "#444" : "#666",
+              "&:hover": { backgroundColor: "#555" },
+            }}
+          >
+            {section}
+          </Button>
+        ))}
+      </Box>
+
+      {/* Movie Grid */}
+      <Typography variant="h4" sx={{ textAlign: "center", marginBottom: "20px", fontWeight: "bold" }}>
+        {activeSection}
+      </Typography>
+      <Grid container spacing={4} justifyContent="center">
+        {displayedItems.map((item, index) => (
+          <Grid item xs={12} sm={6} md={4} key={index}>
+            <MovieFrame
+              image={item.image}
+              title={item.title}
+              description={item.description}
+              isOpen={openDescriptionIndex === index}
+              onClick={() => handleToggleDescription(index)}
+            />
           </Grid>
-        </Grid>
+        ))}
       </Grid>
 
-      <div className="slide-container">
-        <EmblaCarousel images={slideImages.map(k=>k.url)}/>
-       
-      </div>
-
-      <Grid
-        container
-        spacing={3}
-        direction="column"
-        // justifyContent="space-between"
-        // alignItems="center"
-        style={{ fontSize: "20px", paddingTop: "20px", color:"black" }}
-      >
-        <Grid item>
-          <Grid container spacing={3}>
-            <Grid item xs={4}>
-              1992
-            </Grid>
-            <Grid item xs={4}>
-              Tapasya
-            </Grid>
-            <Grid item xs={4}>
-              Director
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item>
-          <Grid container spacing={3}>
-            <Grid item xs={4}>
-              1992
-            </Grid>
-            <Grid item xs={4}>
-              Tapasya
-            </Grid>
-            <Grid item xs={4}>
-              Director
-            </Grid>
-          </Grid>
-        </Grid>
-
-        <Grid item>
-          <Grid container spacing={3}>
-            <Grid item xs={4}>
-              1992
-            </Grid>
-            <Grid item xs={4}>
-              Tapasya
-            </Grid>
-            <Grid item xs={4}>
-              Director
-            </Grid>
-          </Grid>
-        </Grid>
-
-        <Grid item>
-          <Grid container spacing={3}>
-            <Grid item xs={4}>
-              1992
-            </Grid>
-            <Grid item xs={4}>
-              Tapasya
-            </Grid>
-            <Grid item xs={4}>
-              Director
-            </Grid>
-          </Grid>
-        </Grid>
-
-        <Grid item>
-          <Grid container spacing={3}>
-            <Grid item xs={4}>
-              1992
-            </Grid>
-            <Grid item xs={4}>
-              Tapasya
-            </Grid>
-            <Grid item xs={4}>
-              Director
-            </Grid>
-          </Grid>
-        </Grid>
-
-        <Grid item>
-          <Grid container spacing={3}>
-            <Grid item xs={4}>
-              1992
-            </Grid>
-            <Grid item xs={4}>
-              Tapasya
-            </Grid>
-            <Grid item xs={4}>
-              Director
-            </Grid>
-          </Grid>
-        </Grid>
-
-        <Grid item></Grid>
-      </Grid>
-
-      <Grid
-        container
-        spacing={3}
-        direction="column"
-        justifyContent="space-between"
-        alignItems="center"
-        style={{ padding: "30px", color: "black" }}
-      >
-        <Grid item>
-          <Grid container spacing={3} alignItems="center">
-            <Grid item>
-              <Divider
-                sx={{
-                  width: "100%",
-                  borderColor: "white",
-                  borderBottomWidth: 2,
-                }}
-              />
-            </Grid>
-            <Grid item style={{ fontSize: "25px" }}>
-              Documentries
-            </Grid>
-            <Grid item>
-              <Divider
-                sx={{
-                  width: "100%",
-                  borderColor: "white",
-                  borderBottomWidth: 2,
-                }}
-              />
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item></Grid>
-      </Grid>
-
-      <Grid
-        container
-        spacing={3}
-        direction="column"
-        // justifyContent="space-between"
-        // alignItems="center"
-        style={{ fontSize: "20px", paddingTop: "20px", color:"black" }}
-      >
-        {/* <Grid item>
-          <Grid container spacing={3}>
-            <Grid item xs={4}>
-              Abhiyan Sakaratmak Sochko
-            </Grid>
-            <Grid item xs={4}>
-              Director
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item>
-          <Grid container spacing={3}>
-            <Grid item xs={4}>
-              Akhtiyar Ek Chinari
-            </Grid>
-            <Grid item xs={4}>
-              Director
-            </Grid>
-          </Grid>
-        </Grid>
-
-        <Grid item>
-          <Grid container spacing={3}>
-            <Grid item xs={4}>
-              Hariyo ban nepal ko dhan
-            </Grid>
-            <Grid item xs={4}>
-              Director
-            </Grid>
-          </Grid>
-        </Grid> */}
-
-
-        
-<Grid item>
-      <Grid container spacing={3} alignItems="center" justifyContent="space-evenly">
-        <Grid item>Abhiyan Sakaratmak Sochko</Grid>
-        <Grid item>Director</Grid>
-      </Grid>
-      <Grid container spacing={3} alignItems="center" justifyContent="space-evenly" style={{ marginTop: "20px" }}>
-        <Grid item>Abhiyan Sakaratmak Sochko</Grid>
-        <Grid item>Director</Grid>
-      </Grid>
-      <Grid container spacing={3} alignItems="center" justifyContent="space-evenly" style={{ marginTop: "20px" }}>
-        <Grid item>Abhiyan Sakaratmak Sochko</Grid>
-        <Grid item>Director</Grid>
-      </Grid>
-    </Grid>
-
-
-
-
-      </Grid>
-    </div>
+      {/* Pagination */}
+      <Box sx={{ display: "flex", justifyContent: "center", marginTop: "30px" }}>
+        <Pagination
+          count={totalPages}
+          page={currentPage}
+          onChange={handlePageChange}
+          color="primary"
+        />
+      </Box>
+    </Box>
   );
-}
+};
 
 export default DetailPage;
