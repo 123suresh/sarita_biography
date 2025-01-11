@@ -1,122 +1,112 @@
-import * as React from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
+import { Grid } from "@mui/material";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   navbar__main: {
-    backgroundColor: "#8e5353",
+    backgroundColor: "#212431",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    padding: "20px",
+    padding: "30px",
   },
-//   link_set: {
-//     // paddingLeft: "80px",
-//     [theme.breakpoints.down("sm")]: {
-//       display: "flex",
-//       flexDirection: "column",
-//     },
-//   },
-  // avatar: {
-  //   marginRight: "50px",
-  //   padding: "10px",
-  // },
-  // avatarContent: {
-  //   textAlign: "center",
-  //   padding: "10px",
-  // },
   link: {
     textDecoration: "none",
-    color: "floralwhite",
+    color: "#f4f3f7",
     fontSize: "20px",
     textAlign: "center",
-    alignItems: "center",
     paddingLeft: "50px",
-    // [theme.breakpoints.down("sm")]: {
-    //   padding: "10px",
-    // },
+    transition: "color 0.3s ease", // Animation for color change
+    "&:hover": {
+      color: "#F25464", // Change color on hover
+    },
   },
   active__link: {
-    color: "rgb(255, 208, 0)",
+    color: "#F25464", // Highlight active link color
+    fontWeight: "bold", // Bold text for active link
+  },
+  logoLink: {
+    textDecoration: "none",
+    color: "white",
+    "&:hover": {
+      color: "#F25464",
+    },
+  },
+  contactLink: {
+    paddingRight: "50px", // Add right padding to the Contact link
+  },
+  logoImage: {
+    width: "300px", // Adjust size as per your need
+    height: "auto",
+    paddingLeft: "50px",
   },
 }));
 
 const ResponsiveAppBar = () => {
   const classes = useStyles();
-
-  const [activeLink, setActiveLink] = React.useState(null);
-
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
-  const handleActiveLink = (link) => {
-    setActiveLink(link);
-  };
+  const location = useLocation(); // Get the current pathname
 
   return (
     <div className={classes.navbar__main}>
-      <div className={classes.link_set}>
-        <Link
-          onClick={() => handleActiveLink("")}
-          className={`${classes.link} ${
-            window.location.pathname === "/"
-              ? classes.active__link
-              : ""
-          }`}
-          to="/"
-        >
-          Biography
-        </Link>
-        <Link
-          onClick={() => handleActiveLink("detail")}
-          className={`${classes.link} ${
-            window.location.pathname === "/detail"
-              ? classes.active__link
-              : ""
-          }`}
-          to="/detail"
-        >
-          Work
-        </Link>
+      <Grid container spacing={3} justifyContent="space-between" alignItems="center">
+        {/* Logo Section */}
+        <Grid item>
+          <Link to="/" className={classes.logoLink}>
+            <img src="/icon/sarita.png" alt="Sarita Lamichhane" className={classes.logoImage} />
+          </Link>
+        </Grid>
 
-        <Link
-          onClick={() => handleActiveLink("awards")}
-          className={`${classes.link} ${
-            window.location.pathname === "/awards"
-              ? classes.active__link
-              : ""
-          }`}
-          to="/awards"
-        >
-          Awards
-        </Link>
-
-        <Link
-          onClick={() => handleActiveLink("press")}
-          className={`${classes.link} ${
-            window.location.pathname === "/press"
-              ? classes.active__link
-              : ""
-          }`}
-          to="/press"
-        >
-          Press
-        </Link>
-
-        
-
-      </div>
-      <div className={classes.avatar}>
-
-      </div>
+        {/* Navigation Links Section */}
+        <Grid item>
+          <div>
+            <Link
+              className={`${classes.link} ${location.pathname === "/" ? classes.active__link : ""}`}
+              to="/"
+            >
+              Home
+            </Link>
+            <Link
+              className={`${classes.link} ${location.pathname === "/about" ? classes.active__link : ""}`}
+              to="/about"
+            >
+              About Me
+            </Link>
+            <Link
+              className={`${classes.link} ${location.pathname === "/detail" ? classes.active__link : ""}`}
+              to="/detail"
+            >
+              Portfolio
+            </Link>
+            <Link
+              className={`${classes.link} ${location.pathname === "/awards" ? classes.active__link : ""}`}
+              to="/awards"
+            >
+              Awards
+            </Link>
+            <Link
+              className={`${classes.link} ${location.pathname === "/press" ? classes.active__link : ""}`}
+              to="/press"
+            >
+              Press
+            </Link>
+            <Link
+              className={`${classes.link} ${location.pathname === "/gallary" ? classes.active__link : ""}`}
+              to="/gallary"
+            >
+              Gallary
+            </Link>
+            <Link
+              className={`${classes.link} ${classes.contactLink} ${location.pathname === "/contact" ? classes.active__link : ""}`}
+              to="/contact"
+            >
+              Contact
+            </Link>
+          </div>
+        </Grid>
+      </Grid>
     </div>
   );
 };
+
 export default ResponsiveAppBar;
