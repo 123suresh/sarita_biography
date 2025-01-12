@@ -1,112 +1,294 @@
+
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
-import { Grid } from "@mui/material";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import MenuItem from "@mui/material/MenuItem";
+import Grid from "@mui/material/Grid";
 
 const useStyles = makeStyles(() => ({
-  navbar__main: {
-    backgroundColor: "#212431",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "30px",
-  },
   link: {
     textDecoration: "none",
     color: "#f4f3f7",
     fontSize: "20px",
-    textAlign: "center",
-    paddingLeft: "50px",
-    transition: "color 0.3s ease", // Animation for color change
-    "&:hover": {
-      color: "#F25464", // Change color on hover
-    },
-  },
-  active__link: {
-    color: "#F25464", // Highlight active link color
-    fontWeight: "bold", // Bold text for active link
-  },
-  logoLink: {
-    textDecoration: "none",
-    color: "white",
+    transition: "color 0.3s ease",
     "&:hover": {
       color: "#F25464",
     },
   },
-  contactLink: {
-    paddingRight: "50px", // Add right padding to the Contact link
+  active__link: {
+    color: "#F25464",
+    fontWeight: "bold",
   },
-  logoImage: {
-    width: "300px", // Adjust size as per your need
-    height: "auto",
-    paddingLeft: "50px",
+  contactLink: {
+    paddingRight: "20px",
   },
 }));
 
-const ResponsiveAppBar = () => {
+function ResponsiveAppBar() {
   const classes = useStyles();
-  const location = useLocation(); // Get the current pathname
+  const location = useLocation();
+
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
 
   return (
-    <div className={classes.navbar__main}>
-      <Grid container spacing={3} justifyContent="space-between" alignItems="center">
-        {/* Logo Section */}
-        <Grid item>
-          <Link to="/" className={classes.logoLink}>
-            <img src="/icon/sarita.png" alt="Sarita Lamichhane" className={classes.logoImage} />
-          </Link>
-        </Grid>
+    <AppBar position="static" sx={{ backgroundColor: "#212431" }}>
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          {/* Large Logo Section */}
+          <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="#"
+            sx={{
+              fontWeight: "bold",
+              textDecoration: "none",
+              color: "white",
+              mr: 2,
+              display: { xs: "none", md: "block" }, // Show on medium and large screens only
+            }}
+          >
+            <img
+              src="/icon/sarita.png"
+              alt="Large Logo"
+              style={{ width: "300px", height: "auto" }}
+            />
+          </Typography>
 
-        {/* Navigation Links Section */}
-        <Grid item>
-          <div>
-            <Link
-              className={`${classes.link} ${location.pathname === "/" ? classes.active__link : ""}`}
-              to="/"
+          {/* Menu Icon and Name for Small Screens */}
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "flex", md: "none" }, // Show only on small screens
+              justifyContent: "space-between", // Space out the icon and name
+              alignItems: "center", // Align items vertically
+              width: "100%", // Full width
+            }}
+          >
+            {/* Menu Icon on the Left */}
+            <IconButton
+              size="large"
+              aria-label="navigation menu"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
             >
-              Home
-            </Link>
-            <Link
-              className={`${classes.link} ${location.pathname === "/about" ? classes.active__link : ""}`}
-              to="/about"
+              <MenuIcon />
+            </IconButton>
+
+            {/* Name on the Right */}
+            <Typography
+              sx={{
+                fontWeight: "bold",
+                fontSize: "16px",
+                color: "white",
+              }}
             >
-              About Me
-            </Link>
-            <Link
-              className={`${classes.link} ${location.pathname === "/detail" ? classes.active__link : ""}`}
-              to="/detail"
+                          <img
+              src="/icon/sarita.png"
+              alt="Large Logo"
+              style={{ width: "200px", height: "auto" }}
+            />
+            </Typography>
+          </Box>
+
+          {/* Hamburger Menu for Small Screens */}
+          <Menu
+            id="menu-appbar"
+            anchorEl={anchorElNav}
+            anchorOrigin={{
+              vertical: "top",
+              horizontal: "left",
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "left",
+            }}
+            open={Boolean(anchorElNav)}
+            onClose={handleCloseNavMenu}
+          >
+            <MenuItem onClick={handleCloseNavMenu}>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "10px",
+                  color:"black"
+                }}
+              >
+                <Link
+                  className={`${classes.link} ${
+                    location.pathname === "/" ? classes.active__link : ""
+                  }`}
+                  to="/"
+                >
+                  <Typography style={{color:"black", fontSize:"18px", fontWeight:"700"}}>Home</Typography> 
+                </Link>
+                <Link
+                  className={`${classes.link} ${
+                    location.pathname === "/about" ? classes.active__link : ""
+                  }`}
+                  to="/about"
+                >
+                  <Typography style={{color:"black", fontSize:"18px", fontWeight:"700"}}>About</Typography>
+                </Link>
+
+
+
+                
+                <Link
+                  className={`${classes.link} ${
+                    location.pathname === "/detail" ? classes.active__link : ""
+                  }`}
+                  to="/detail"
+                >
+                  
+                  <Typography style={{color:"black", fontSize:"18px", fontWeight:"700"}}>Portfolio</Typography>
+                </Link>
+
+
+                        <Link
+              className={`${classes.link} ${location.pathname === "/awards" ? classes.active__link : ""}`}
+              to="/awards"
             >
-              Portfolio
+              
+              <Typography style={{color:"black", fontSize:"18px", fontWeight:"700"}}>Awards</Typography>
             </Link>
+
             <Link
+              className={`${classes.link} ${location.pathname === "/press" ? classes.active__link : ""}`}
+              to="/press"
+            >
+              
+              <Typography style={{color:"black", fontSize:"18px", fontWeight:"700"}}>Press</Typography>
+            </Link>
+
+            <Link
+              className={`${classes.link} ${location.pathname === "/gallary" ? classes.active__link : ""}`}
+              to="/gallary"
+            >
+              
+              <Typography style={{color:"black", fontSize:"18px", fontWeight:"700"}}>Gallary</Typography>
+            </Link>
+
+                <Link
+                  className={`${classes.link} ${
+                    location.pathname === "/contact" ? classes.active__link : ""
+                  }`}
+                  to="/contact"
+                >
+                  
+                  <Typography style={{color:"black", fontSize:"18px", fontWeight:"700"}}>Contact</Typography>
+                </Link>
+
+
+
+
+                {/* Add more links as needed */}
+              </Box>
+            </MenuItem>
+          </Menu>
+
+          {/* Links Section for Medium and Large Screens */}
+          <Box
+            sx={{
+              display: { xs: "none", md: "flex" },
+              justifyContent: "flex-end", // Align links to the right
+              flexGrow: 1,
+            }}
+          >
+            <Grid container spacing={2} alignItems="center" justifyContent="flex-end">
+              <Grid item>
+                <Link
+                  className={`${classes.link} ${
+                    location.pathname === "/" ? classes.active__link : ""
+                  }`}
+                  to="/"
+                >
+                  Home
+                </Link>
+              </Grid>
+              <Grid item>
+                <Link
+                  className={`${classes.link} ${
+                    location.pathname === "/about" ? classes.active__link : ""
+                  }`}
+                  to="/about"
+                >
+                  About Me
+                </Link>
+              </Grid>
+              <Grid item>
+                <Link
+                  className={`${classes.link} ${
+                    location.pathname === "/detail" ? classes.active__link : ""
+                  }`}
+                  to="/detail"
+                >
+                  Portfolio
+                </Link>
+              </Grid>
+              <Grid item>
+
+                        <Link
               className={`${classes.link} ${location.pathname === "/awards" ? classes.active__link : ""}`}
               to="/awards"
             >
               Awards
             </Link>
+            </Grid>
+            <Grid item>
             <Link
               className={`${classes.link} ${location.pathname === "/press" ? classes.active__link : ""}`}
               to="/press"
             >
               Press
             </Link>
+            </Grid>
+            <Grid item>
             <Link
               className={`${classes.link} ${location.pathname === "/gallary" ? classes.active__link : ""}`}
               to="/gallary"
             >
               Gallary
             </Link>
-            <Link
-              className={`${classes.link} ${classes.contactLink} ${location.pathname === "/contact" ? classes.active__link : ""}`}
-              to="/contact"
-            >
-              Contact
-            </Link>
-          </div>
-        </Grid>
-      </Grid>
-    </div>
+            </Grid>
+
+              <Grid item>
+                <Link
+                  className={`${classes.link} ${
+                    location.pathname === "/contact" ? classes.active__link : ""
+                  }`}
+                  to="/contact"
+                >
+                  Contact
+                </Link>
+              </Grid>
+            </Grid>
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
-};
+}
 
 export default ResponsiveAppBar;
+
