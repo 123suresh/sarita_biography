@@ -7,8 +7,8 @@ import AwardPage from "../pages/AwardsPage";
 import PressPage from "../pages/PressPage";
 import AboutMe from "../pages/AboutMe";
 import Contact from "../pages/Contact";
-import Gallary from "../pages/Gallary";
 import PageNotFound from "../pages/PageNotFound";
+import Gallary from "../pages/Gallary";
 
 function Routing() {
   return (

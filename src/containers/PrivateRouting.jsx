@@ -1,6 +1,7 @@
 import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import ResponsiveAppBar from "../components/Header";
+import Footer from "../components/Footer";
 
 function PrivateRoute() {
 //   const token = useSelector((state)=> state.Auth.token)
@@ -11,6 +12,7 @@ function PrivateRoute() {
         <>
           <ResponsiveAppBar />
           <Outlet />
+          <Footer/>
         </>
       {/* ) : (
         <Navigate to="/" />

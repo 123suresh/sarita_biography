@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
@@ -16,15 +15,15 @@ import Grid from "@mui/material/Grid";
 const useStyles = makeStyles(() => ({
   link: {
     textDecoration: "none",
-    color: "#f4f3f7",
+    color: "#f4f3f7", // Light text color for contrast
     fontSize: "20px",
     transition: "color 0.3s ease",
     "&:hover": {
-      color: "#F25464",
+      color: "#A04455", // Highlighted link color
     },
   },
   active__link: {
-    color: "#F25464",
+    color: "#A04455",
     fontWeight: "bold",
   },
   contactLink: {
@@ -47,7 +46,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "#212431" }}>
+    <AppBar position="fixed" sx={{ backgroundColor: "#262528", height: "64px" }}> {/* Updated color */}
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* Large Logo Section */}
@@ -101,11 +100,11 @@ function ResponsiveAppBar() {
                 color: "white",
               }}
             >
-                          <img
-              src="/icon/sarita.png"
-              alt="Large Logo"
-              style={{ width: "200px", height: "auto" }}
-            />
+              <img
+                src="/icon/sarita.png"
+                alt="Large Logo"
+                style={{ width: "200px", height: "auto" }}
+              />
             </Typography>
           </Box>
 
@@ -131,7 +130,7 @@ function ResponsiveAppBar() {
                   display: "flex",
                   flexDirection: "column",
                   gap: "10px",
-                  color:"black"
+                  color: "black",
                 }}
               >
                 <Link
@@ -140,7 +139,15 @@ function ResponsiveAppBar() {
                   }`}
                   to="/"
                 >
-                  <Typography style={{color:"black", fontSize:"18px", fontWeight:"700"}}>Home</Typography> 
+                  <Typography
+                    style={{
+                      color: "black",
+                      fontSize: "18px",
+                      fontWeight: "700",
+                    }}
+                  >
+                    Home
+                  </Typography>
                 </Link>
                 <Link
                   className={`${classes.link} ${
@@ -148,61 +155,96 @@ function ResponsiveAppBar() {
                   }`}
                   to="/about"
                 >
-                  <Typography style={{color:"black", fontSize:"18px", fontWeight:"700"}}>About</Typography>
+                  <Typography
+                    style={{
+                      color: "black",
+                      fontSize: "18px",
+                      fontWeight: "700",
+                    }}
+                  >
+                    About
+                  </Typography>
                 </Link>
-
-
-
-                
                 <Link
                   className={`${classes.link} ${
                     location.pathname === "/detail" ? classes.active__link : ""
                   }`}
                   to="/detail"
                 >
-                  
-                  <Typography style={{color:"black", fontSize:"18px", fontWeight:"700"}}>Portfolio</Typography>
+                  <Typography
+                    style={{
+                      color: "black",
+                      fontSize: "18px",
+                      fontWeight: "700",
+                    }}
+                  >
+                    Portfolio
+                  </Typography>
                 </Link>
-
-
-                        <Link
-              className={`${classes.link} ${location.pathname === "/awards" ? classes.active__link : ""}`}
-              to="/awards"
-            >
-              
-              <Typography style={{color:"black", fontSize:"18px", fontWeight:"700"}}>Awards</Typography>
-            </Link>
-
-            <Link
-              className={`${classes.link} ${location.pathname === "/press" ? classes.active__link : ""}`}
-              to="/press"
-            >
-              
-              <Typography style={{color:"black", fontSize:"18px", fontWeight:"700"}}>Press</Typography>
-            </Link>
-
-            <Link
-              className={`${classes.link} ${location.pathname === "/gallary" ? classes.active__link : ""}`}
-              to="/gallary"
-            >
-              
-              <Typography style={{color:"black", fontSize:"18px", fontWeight:"700"}}>Gallary</Typography>
-            </Link>
-
+                <Link
+                  className={`${classes.link} ${
+                    location.pathname === "/awards" ? classes.active__link : ""
+                  }`}
+                  to="/awards"
+                >
+                  <Typography
+                    style={{
+                      color: "black",
+                      fontSize: "18px",
+                      fontWeight: "700",
+                    }}
+                  >
+                    Awards
+                  </Typography>
+                </Link>
+                <Link
+                  className={`${classes.link} ${
+                    location.pathname === "/press" ? classes.active__link : ""
+                  }`}
+                  to="/press"
+                >
+                  <Typography
+                    style={{
+                      color: "black",
+                      fontSize: "18px",
+                      fontWeight: "700",
+                    }}
+                  >
+                    Press
+                  </Typography>
+                </Link>
+                <Link
+                  className={`${classes.link} ${
+                    location.pathname === "/gallery" ? classes.active__link : ""
+                  }`}
+                  to="/gallery"
+                >
+                  <Typography
+                    style={{
+                      color: "black",
+                      fontSize: "18px",
+                      fontWeight: "700",
+                    }}
+                  >
+                    Gallery
+                  </Typography>
+                </Link>
                 <Link
                   className={`${classes.link} ${
                     location.pathname === "/contact" ? classes.active__link : ""
                   }`}
                   to="/contact"
                 >
-                  
-                  <Typography style={{color:"black", fontSize:"18px", fontWeight:"700"}}>Contact</Typography>
+                  <Typography
+                    style={{
+                      color: "black",
+                      fontSize: "18px",
+                      fontWeight: "700",
+                    }}
+                  >
+                    Contact
+                  </Typography>
                 </Link>
-
-
-
-
-                {/* Add more links as needed */}
               </Box>
             </MenuItem>
           </Menu>
@@ -247,31 +289,35 @@ function ResponsiveAppBar() {
                 </Link>
               </Grid>
               <Grid item>
-
-                        <Link
-              className={`${classes.link} ${location.pathname === "/awards" ? classes.active__link : ""}`}
-              to="/awards"
-            >
-              Awards
-            </Link>
-            </Grid>
-            <Grid item>
-            <Link
-              className={`${classes.link} ${location.pathname === "/press" ? classes.active__link : ""}`}
-              to="/press"
-            >
-              Press
-            </Link>
-            </Grid>
-            <Grid item>
-            <Link
-              className={`${classes.link} ${location.pathname === "/gallary" ? classes.active__link : ""}`}
-              to="/gallary"
-            >
-              Gallary
-            </Link>
-            </Grid>
-
+                <Link
+                  className={`${classes.link} ${
+                    location.pathname === "/awards" ? classes.active__link : ""
+                  }`}
+                  to="/awards"
+                >
+                  Awards
+                </Link>
+              </Grid>
+              <Grid item>
+                <Link
+                  className={`${classes.link} ${
+                    location.pathname === "/press" ? classes.active__link : ""
+                  }`}
+                  to="/press"
+                >
+                  Press
+                </Link>
+              </Grid>
+              <Grid item>
+                <Link
+                  className={`${classes.link} ${
+                    location.pathname === "/gallary" ? classes.active__link : ""
+                  }`}
+                  to="/gallary"
+                >
+                  Gallery
+                </Link>
+              </Grid>
               <Grid item>
                 <Link
                   className={`${classes.link} ${
@@ -291,4 +337,3 @@ function ResponsiveAppBar() {
 }
 
 export default ResponsiveAppBar;
-
