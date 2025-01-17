@@ -1,140 +1,351 @@
-import React from "react";
-import { Grid, Typography, Box } from "@mui/material";
-import { makeStyles } from "@mui/styles";
-import ImgAccordian from "../components/ImgAccordian";
+import React, { useState } from "react";
+import { Box, Typography, Button, Grid } from "@mui/material";
 
-const useStyles = makeStyles((theme) => ({
-  container: {
-    padding: "40px 20px",
-    color: "white",
-    backgroundColor: "#212431",
-    minHeight: "100vh",
-    display: "flex",
-    flexDirection: "column",
-    gap: "40px", // Add consistent spacing between sections
+const awards = [
+  {
+    title: "Excellence in Arts Award",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Award/award-1.jpeg",
   },
-  header: {
-    textAlign: "center",
-    color: "#f8f8f8",
-    marginBottom: "20px",
+  {
+    title: "Lifetime Achievement Award",
+    description: "Honored for a remarkable career filled with impactful achievements and lasting legacy in the entertainment industry.",
+    image: "/images/Award/award-2.jpg",
   },
-  sectionTitle: {
-    fontSize: "2rem",
-    fontWeight: "bold",
-    color: "#f8b400", // Highlighted color for section titles
-    textAlign: "center",
-    marginBottom: "10px",
+  {
+    title: "Rising Star of the Year",
+    description: "Celebrating emerging talent and exceptional promise in the world of cinema and theater.",
+    image: "/images/Award/award-3.jpg",
   },
-  honorsAwardsSection: {
-    padding: "20px",
-    backgroundColor: "#2a2d3e",
-    borderRadius: "10px",
-    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)", // Add subtle shadow for elevation
-  },
-  listItem: {
-    fontSize: "1rem",
-    lineHeight: "1.8",
-    marginBottom: "10px",
-    color: "#d1d1d1",
-  },
-  imgContainer: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: "20px",
-    marginTop: "30px",
-  },
-  footer: {
-    marginTop: "auto", // Push footer to the bottom
-    textAlign: "center",
-    padding: "20px 0",
-    borderTop: "1px solid #444",
-    color: "#aaa",
-  },
-}));
+];
 
-function AwardPage() {
-  const classes = useStyles();
+const honors = [
+  {
+    title: "NEFTA",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/nefta.jpg",
+  },
+  {
+    title: "NEPAL ARMY I",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/nepal-army1.jpg",
+  },
+  {
+    title: "NEPAL ARMY II",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/nepal-army2.jpg",
+  },
+  {
+    title: "NEPAL ARMY III",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/nepal-army3.jpg",
+  },
+  {
+    title: "GLOBAL NEPAL",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/global-nepal.jpg",
+  },
+  {
+    title: "PARIWARTAN",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/pariwartan-nepal.jpg",
+  },
+  {
+    title: "FILM DEVELOPMENT BOARD",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/fdb.jpg",
+  },
+  {
+    title: "FILM FESTIVAL",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/filmfest.jpg",
+  },
+  {
+    title: "INAS",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/inas.jpg",
+  },
+  {
+    title: "ARMY",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/army.jpeg",
+  },
+  {
+    title: "ACTRESS HONOR",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/actresshonor.JPG",
+  },
+  {
+    title: "ACTRESS HONOR II",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/actresshonor2.JPG",
+  },
+  {
+    title: "EVEREST",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/everest-1.jpg",
+  },
+  {
+    title: "WOMENS DAY",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/womensday.jpeg",
+  },
+];
+
+const AwardPage = () => {
+  const [activeSection, setActiveSection] = useState("Awards");
+  const [currentImageList, setCurrentImageList] = useState(awards);
+  const [isSlideshowOpen, setIsSlideshowOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Handle switching sections
+  const handleToggleSection = (section) => {
+    setActiveSection(section);
+    setCurrentImageList(section === "Awards" ? awards : honors);
+    setIsSlideshowOpen(false); // Close slideshow if open
+  };
+
+  // Handle opening the slideshow
+  const openSlideshow = (index) => {
+    setCurrentImageIndex(index);
+    setIsSlideshowOpen(true);
+  };
+
+  // Handle closing the slideshow
+  const closeSlideshow = () => {
+    setIsSlideshowOpen(false);
+  };
+
+  // Handle slideshow navigation
+  const handleSlideshowNavigation = (direction) => {
+    if (direction === "left") {
+      setCurrentImageIndex((prev) =>
+        prev === 0 ? currentImageList.length - 1 : prev - 1
+      );
+    } else if (direction === "right") {
+      setCurrentImageIndex((prev) =>
+        prev === currentImageList.length - 1 ? 0 : prev + 1
+      );
+    }
+  };
 
   return (
-    <div className={classes.container}>
+    <Box
+      sx={{
+        padding: "100px 10%",
+        color: "#FBFBF3",
+        backgroundColor: "#262528",
+        minHeight: "100vh",
+        fontFamily: "'Poppins', sans-serif",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
       {/* Header */}
-      <Box className={classes.header}>
-        <Typography variant="h3" style={{ fontWeight: "bold", color: "#fff" }}>
+      <Box sx={{ textAlign: "center", marginBottom: "30px" }}>
+        <Typography variant="h3" sx={{ fontWeight: "bold", fontSize: "50px", color: "#CDBFA7" }}>
           HONORS & AWARDS
         </Typography>
       </Box>
 
-      {/* Honors Section */}
-      <Box className={classes.honorsAwardsSection}>
-        <Typography className={classes.sectionTitle}>Honors</Typography>
-        <ul style={{ paddingLeft: "20px" }}>
-          <li className={classes.listItem}>
-            National Actor Honor (2080) – Rose Beauty Academy
-          </li>
-          <li className={classes.listItem}>Jiwanta Nepal Music Award (2023)</li>
-          <li className={classes.listItem}>
-            Nepal Film Development Board Honor (2080)
-          </li>
-          <li className={classes.listItem}>
-            National Personality & Creator Honor (2024)
-          </li>
-          <li className={classes.listItem}>
-            Simple Honor (2080) – Simple Arts
-          </li>
-          <li className={classes.listItem}>
-            Additional Honors from Prabhat Tara Awasiya Maha Bidhayalaya, NTV,
-            Birat Kala Samuha, and others.
-          </li>
-        </ul>
+      {/* Toggle Buttons */}
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "20px",
+          marginBottom: "40px",
+        }}
+      >
+        <Button
+          onClick={() => handleToggleSection("Awards")}
+          sx={{
+            backgroundColor: activeSection === "Awards" ? "#A04455 " : "#444",
+            color: "#fff",
+            "&:hover": {
+              backgroundColor: activeSection === "Awards" ? "#A04455" : "#555",
+            },
+            padding: "10px 20px",
+            fontWeight: "bold",
+          }}
+        >
+          Awards
+        </Button>
+        <Button
+          onClick={() => handleToggleSection("Honors")}
+          sx={{
+            backgroundColor: activeSection === "Honors" ? "#A04455" : "#444",
+            color: "#fff",
+            "&:hover": {
+              backgroundColor: activeSection === "Honors" ? "#A04455" : "#555",
+            },
+            padding: "10px 20px",
+            fontWeight: "bold",
+          }}
+        >
+          Honors
+        </Button>
       </Box>
 
-      {/* Awards Section */}
-      <Box className={classes.honorsAwardsSection}>
-        <Typography className={classes.sectionTitle}>Awards</Typography>
-        <ul style={{ paddingLeft: "20px" }}>
-          <li className={classes.listItem}>Nepal Short Film Award (2023)</li>
-          <li className={classes.listItem}>
-            12th Nepal Africa Film Award (2024)
-          </li>
-          <li className={classes.listItem}>
-            Box Office Telefilm Award (2021)
-          </li>
-        </ul>
-      </Box>
+      {/* Grid Section */}
+      <Grid container spacing={4}>
+        {currentImageList.map((item, index) => (
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            key={index}
+            sx={{
+              position: "relative",
+              cursor: "pointer",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              "&:hover": {
+                transform: "scale(1.05)",
+                boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.4)",
+              },
+            }}
+            onClick={() => openSlideshow(index)}
+          >
+            <Box
+              sx={{
+                borderRadius: "10px",
+                overflow: "hidden",
+                boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
+                width: "100%",
+                height: "550px",
+              }}
+            >
+              <img
+                src={item.image}
+                alt={item.title}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  display: "block",
+                  objectFit: "cover",
+                }}
+              />
+            </Box>
+            <Box
+              sx={{
+                marginTop: "10px",
+                textAlign: "center",
+              }}
+            >
+              <Typography
+                variant="h6"
+                sx={{
+                  fontWeight: "bold",
+                }}
+              >
+                {item.title}
+              </Typography>
+              <Typography
+                variant="body2"
+                sx={{
+                  color: "#ccc",
+                }}
+              >
+                {item.description}
+              </Typography>
+            </Box>
+          </Grid>
+        ))}
+      </Grid>
 
-      {/* Image Accordions Section */}
-      <Box className={classes.imgContainer}>
-        <Grid container spacing={3}>
-          {["panel1", "panel2", "panel3", "panel4", "panel5", "panel6"].map(
-            (panel, index) => (
-              <Grid item md={4} sm={6} xs={12} key={index}>
-                <ImgAccordian
-                  imgPanel={panel}
-                  expanded={false}
-                  setExpanded={() => {}}
-                  handleChange={() => {}}
-                  style={{
-                    aspectRatio: "2/3",
-                    objectFit: "cover",
-                    borderRadius: "10px",
-                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.3)", // Shadow for images
-                  }}
-                />
-              </Grid>
-            )
-          )}
-        </Grid>
-      </Box>
+      {/* Slideshow Popup */}
+      {isSlideshowOpen && (
+        <div
+          style={{
+            position: "fixed",
+            top: 40,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0, 0, 0, 0.8)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 1000,
+          }}
+          onClick={closeSlideshow} // Close on background click
+        >
+          {/* Close Button */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation(); // Prevent closing when clicking the button
+              closeSlideshow();
+            }}
+            style={{
+              position: "absolute",
+              top: "30px",
+              right: "20px",
+              background: "none",
+              color: "#fff",
+              border: "none",
+              fontSize: "24px",
+              cursor: "pointer",
+            }}
+          >
+            ✖
+          </button>
 
-      {/* Footer */}
-      <div className={classes.footer}>
-        <Typography variant="body2" style={{ fontSize: "1rem" }}>
-          © 2025 Sarita Lamichhane | All Rights Reserved.
-        </Typography>
-      </div>
-    </div>
+          {/* Image */}
+          <img
+            src={currentImageList[currentImageIndex].image}
+            alt="Slideshow"
+            style={{
+              maxWidth: "80%",
+              maxHeight: "80%",
+              objectFit: "contain",
+              borderRadius: "10px",
+            }}
+            onClick={(e) => e.stopPropagation()} // Prevent background click closing
+          />
+
+          {/* Left Arrow */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation(); // Prevent background click closing
+              handleSlideshowNavigation("left");
+            }}
+            style={{
+              position: "absolute",
+              left: "20px",
+              background: "none",
+              color: "#fff",
+              border: "none",
+              fontSize: "36px",
+              cursor: "pointer",
+            }}
+          >
+            ◀
+          </button>
+
+          {/* Right Arrow */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation(); // Prevent background click closing
+              handleSlideshowNavigation("right");
+            }}
+            style={{
+              position: "absolute",
+              right: "20px",
+              background: "none",
+              color: "#fff",
+              border: "none",
+              fontSize: "36px",
+              cursor: "pointer",
+            }}
+          >
+            ▶
+          </button>
+        </div>
+      )}
+    </Box>
   );
-}
+};
 
 export default AwardPage;

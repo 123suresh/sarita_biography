@@ -1,163 +1,225 @@
 import React from "react";
-import Footer from "../assets/Footer"; // Import Footer component
+import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 
-function HomePage() {
+const HomePage = () => {
+  const navigate = useNavigate(); // Hook for navigation
+
+  const handleExploreClick = () => {
+    navigate("/detail"); // Navigate to DetailsPage
+  };
+
   return (
     <div
       style={{
-        background: "linear-gradient(to bottom right, #f8f4fc, #e8e4f8)", // Subtle gradient
+        display: "flex",
+        flexDirection: "column",
         minHeight: "100vh",
+        backgroundColor: "#262528",
         fontFamily: "'Poppins', sans-serif",
-        color: "#333",
-        overflowX: "hidden", // Prevent horizontal scrolling
+        color: "#FBFBF3",
+        overflow: "hidden",
       }}
     >
-      {/* Main Section */}
-      <main
+      {/* Main Content */}
+      <div
         style={{
-          display: "flex",
-          flexDirection: "row",
-          flexWrap: "wrap",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "40px",
+          flex: 1,
+          position: "relative",
+          animation: "fadeIn 2s ease-in-out",
         }}
       >
-        {/* Left Section: Full-Screen Image */}
+        {/* Left Section */}
         <div
           style={{
-            flex: 1,
-            textAlign: "center",
-            maxWidth: "50%",
+            position: "absolute",
+            top: "20%",
+            left: "8%",
+            textAlign: "left",
+            maxWidth: "40%",
+            opacity: 0,
+            animation: "fadeInFromLeft 2s forwards",
           }}
         >
-          <img
-            src="/images/Profile/img_1.png"
-            alt="Profile"
+          <p
             style={{
-              width: "100%",
-              height: "auto",
-              maxHeight: "90vh",
-              objectFit: "contain",
-              display: "block",
-              margin: "0 auto",
-            }}
-          />
-        </div>
-
-        {/* Right Section: Greeting and Bio */}
-        <div
-          style={{
-            flex: 1,
-            paddingLeft: "20px",
-            maxWidth: "50%",
-          }}
-        >
-          <h1
-            style={{
-              fontSize: "64px",
-              fontWeight: "bold",
-              color: "#6b46c1",
-              marginBottom: "10px",
+              fontSize: "32px",
+              color: "#D4D3D4",
             }}
           >
-            Namaste!
+            Namaste, I'm
+          </p>
+          <h1
+            style={{
+              fontSize: "84px",
+              fontWeight: "bold",
+              color: "#FBFBF3",
+              margin: "0",
+            }}
+          >
+            Sarita
+          </h1>
+          <h1
+            style={{
+              fontSize: "84px",
+              fontWeight: "bold",
+              color: "#CDBFA7",
+              margin: "0",
+            }}
+          >
+            Lamichhane
           </h1>
           <p
             style={{
-              fontSize: "20px",
-              lineHeight: "1.8",
+              fontSize: "22px",
+              fontStyle: "italic",
+              color: "#D4D3D4",
             }}
           >
-            I’m <strong>Sarita Lamichhane</strong>, an Actress, Artist, and Media
-            Personality. With over 20 years of experience in the entertainment
-            industry, I’ve passionately dedicated my career to storytelling
-            through acting, directing, and producing. Explore my portfolio to
-            learn more about my work, accolades, and the causes I support.
+            Professional Actress | Artist | Media Personality
           </p>
-          <a
-            href="#portfolio"
-            style={{
-              display: "inline-block",
-              marginTop: "20px",
-              padding: "10px 20px",
-              backgroundColor: "#6b46c1",
-              color: "#fff",
-              borderRadius: "5px",
-              textDecoration: "none",
-              fontSize: "18px",
-              fontWeight: "bold",
-              transition: "transform 0.3s ease, background-color 0.3s ease", // Animation
-            }}
-            onMouseEnter={(e) =>
-              (e.target.style.backgroundColor = "#54349e", e.target.style.transform = "scale(1.1)")
-            }
-            onMouseLeave={(e) =>
-              (e.target.style.backgroundColor = "#6b46c1", e.target.style.transform = "scale(1)")
-            }
-          >
-            Explore Portfolio
-          </a>
 
-          {/* Let’s Connect Section */}
-          <div
+          <button
             style={{
               marginTop: "30px",
-              textAlign: "center",
+              padding: "12px 24px",
+              fontSize: "18px",
+              backgroundColor: "#CDBFA7",
+              color: "#262528",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer",
+              fontWeight: "bold",
+              transition: "background-color 0.3s ease",
             }}
+            onMouseEnter={(e) => (e.target.style.backgroundColor = "#B4A187")}
+            onMouseLeave={(e) => (e.target.style.backgroundColor = "#CDBFA7")}
+            onClick={handleExploreClick} // Updated click handler
           >
-            <h3
-              style={{
-                fontSize: "24px",
-                color: "#6b46c1",
-                fontWeight: "bold",
-                fontFamily: "'Pacifico', cursive", // Cursive Font
-              }}
-            >
-              Let’s Connect
-            </h3>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                gap: "20px",
-                marginTop: "10px",
-              }}
-            >
-              {/* Social Media Icons */}
-              {[ 
-                { href: "https://www.facebook.com/sarita.lamichhane.1481", icon: "/icon/fb.png", alt: "Facebook" },
-                { href: "https://www.instagram.com/", icon: "/icon/ig.png", alt: "Instagram" },
-                { href: "https://www.tiktok.com/@saritalamichhane5555", icon: "/icon/tk.png", alt: "Tiktok" },
-                { href: "https://www.youtube.com/", icon: "/icon/yt.png", alt: "Youtube" },
-              ].map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    transition: "transform 0.3s ease, opacity 0.3s ease", // Animation
-                  }}
-                  onMouseEnter={(e) => (e.target.style.transform = "scale(1.2)", e.target.style.opacity = "0.8")}
-                  onMouseLeave={(e) => (e.target.style.transform = "scale(1)", e.target.style.opacity = "1")}
-                >
-                  <img
-                    src={social.icon}
-                    alt={social.alt}
-                    style={{ width: "40px", height: "40px" }}
-                  />
-                </a>
-              ))}
-            </div>
-          </div>
+            Explore Portfolio
+          </button>
         </div>
-      </main>
 
-      {/* Footer */}
-      <Footer /> {/* Footer component included here */}
+        {/* Full Page Image */}
+        <img
+          src="/images/Profile/img_1.png"
+          alt="Sarita Lamichhane"
+          style={{
+            position: "absolute",
+            top: "8%",
+            right: "10%",
+            maxHeight: "90%",
+            maxWidth: "70%",
+            objectFit: "cover",
+            filter: "grayscale(40%)",
+            animation: "zoomIn 3s ease-out",
+          }}
+        />
+
+        {/* Social Media Icons */}
+        <div
+          style={{
+            position: "absolute",
+            top: "30%",
+            right: "3%",
+            display: "flex",
+            flexDirection: "column",
+            gap: "20px",
+            opacity: 0,
+            animation: "slideInFromRight 1s 0.5s forwards",
+          }}
+        >
+          {[
+            { href: "https://www.facebook.com/sarita.lamichhane.1481", icon: "/icon/fb.png", alt: "Facebook" },
+            { href: "https://www.instagram.com/sarita.lamichhane.1481", icon: "/icon/ig.png", alt: "Instagram" },
+            { href: "https://www.tiktok.com/@saritalamichhane5555?lang=en", icon: "/icon/tk.png", alt: "Tiktok" },
+            { href: "https://www.imdb.com/user/ur192640391/?ref_=ext_shr_lnk", icon: "/icon/imdb.png", alt: "IMDB" },
+          ].map((social, index) => (
+            <a
+              key={index}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                transition: "transform 0.3s ease, opacity 0.3s ease",
+              }}
+              onMouseEnter={(event) => {
+                event.target.style.transform = "scale(1.2)";
+                event.target.style.opacity = "0.8";
+              }}
+              onMouseLeave={(event) => {
+                event.target.style.transform = "scale(1)";
+                event.target.style.opacity = "1";
+              }}
+            >
+              <img
+                src={social.icon}
+                alt={social.alt}
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  transition: "filter 0.3s ease",
+                }}
+                onMouseEnter={(e) => (e.target.style.filter = "brightness(1.5) saturate(1.2)")}
+                onMouseLeave={(e) => (e.target.style.filter = "brightness(1) saturate(1)")}
+              />
+            </a>
+          ))}
+        </div>
+
+        {/* Background Texture */}
+        <div
+          style={{
+            position: "absolute",
+            inset: "0",
+            background: "radial-gradient(circle, rgba(0,0,0,0.15), transparent 70%)",
+            zIndex: "-1",
+          }}
+        />
+      </div>
+
+      {/* CSS Animations */}
+      <style>
+        {`
+          @keyframes fadeIn {
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 1;
+            }
+          }
+          @keyframes fadeInFromLeft {
+            from {
+              opacity: 0;
+              transform: translateX(-100px);
+            }
+            to {
+              opacity: 1;
+              transform: translateX(0);
+            }
+          }
+          @keyframes zoomIn {
+            from {
+              transform: scale(0.8);
+            }
+            to {
+              transform: scale(1);
+            }
+          }
+          @keyframes slideInFromRight {
+            from {
+              opacity: 0;
+              transform: translateX(100px);
+            }
+            to {
+              opacity: 1;
+              transform: translateX(0);
+            }
+          }
+        `}
+      </style>
     </div>
   );
-}
+};
 
 export default HomePage;
