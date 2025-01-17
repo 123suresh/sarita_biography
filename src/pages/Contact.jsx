@@ -9,10 +9,10 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
-        "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
+        "service_enfxjqm", // Replace with your EmailJS service ID
+        "template_u0gnfof", // Replace with your EmailJS template ID
         form.current,
-        "YOUR_PUBLIC_KEY" // Replace with your EmailJS public key
+        "DSxH9uZC6q-Ul9bpk" // Replace with your EmailJS public key
       )
       .then(
         (result) => {
@@ -125,10 +125,10 @@ const Contact = () => {
           </p>
           <div>
             <p>
-              📧 <strong>thughomies5@gmail.com</strong>
+              📧 <strong>saritalamichhanesamu@gmail.com</strong>
             </p>
             <p>
-              📞 <strong>817-988-5422</strong>
+              📞 <strong>380-269-9495</strong>
             </p>
             <div
               style={{
@@ -145,7 +145,7 @@ const Contact = () => {
                   alt: "Facebook",
                 },
                 {
-                  href: "https://www.instagram.com/",
+                  href: "https://www.instagram.com/sarita.lamichhane.1481",
                   icon: "/icon/ig.png",
                   alt: "Instagram",
                 },
@@ -155,9 +155,9 @@ const Contact = () => {
                   alt: "Tiktok",
                 },
                 {
-                  href: "https://www.youtube.com/",
-                  icon: "/icon/yt.png",
-                  alt: "YouTube",
+                  href: "https://www.imdb.com/user/ur192640391/?ref_=ext_shr_lnk",
+                  icon: "/icon/imdb.png",
+                  alt: "IMDB",
                 },
               ].map((social, index) => (
                 <a

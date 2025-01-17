@@ -47,7 +47,7 @@ function ResponsiveAppBar() {
 
   return (
     <AppBar position="fixed" sx={{ backgroundColor: "#262528", height: "64px" }}> {/* Updated color */}
-      <Container maxWidth="xl">
+      <Container maxWidth={false} sx={{ paddingLeft: "10px", paddingRight: "10px" }}>
         <Toolbar disableGutters>
           {/* Large Logo Section */}
           <Typography
@@ -60,15 +60,18 @@ function ResponsiveAppBar() {
               textDecoration: "none",
               color: "white",
               mr: 2,
-              display: { xs: "none", md: "block" }, // Show on medium and large screens only
+              display: { xs: "none", md: "block" },
             }}
           >
-            <img
-              src="/icon/sarita.png"
-              alt="Large Logo"
-              style={{ width: "300px", height: "auto" }}
-            />
+            <Link to="/">
+              <img
+                src="/icon/sarita.png"
+                alt="Large Logo"
+                style={{ width: "300px", height: "auto" }}
+              />
+            </Link>
           </Typography>
+
 
           {/* Menu Icon and Name for Small Screens */}
           <Box
@@ -100,12 +103,15 @@ function ResponsiveAppBar() {
                 color: "white",
               }}
             >
-              <img
-                src="/icon/sarita.png"
-                alt="Large Logo"
-                style={{ width: "200px", height: "auto" }}
-              />
+              <Link to="/">
+                <img
+                  src="/icon/sarita.png"
+                  alt="Large Logo"
+                  style={{ width: "200px", height: "auto" }}
+                />
+              </Link>
             </Typography>
+
           </Box>
 
           {/* Hamburger Menu for Small Screens */}
@@ -311,9 +317,9 @@ function ResponsiveAppBar() {
               <Grid item>
                 <Link
                   className={`${classes.link} ${
-                    location.pathname === "/gallary" ? classes.active__link : ""
+                    location.pathname === "/gallery" ? classes.active__link : ""
                   }`}
-                  to="/gallary"
+                  to="/gallery"
                 >
                   Gallery
                 </Link>

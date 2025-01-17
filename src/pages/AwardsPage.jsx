@@ -1,17 +1,96 @@
 import React, { useState } from "react";
 import { Box, Typography, Button, Grid } from "@mui/material";
 
-const awards = Array.from({ length: 9 }, (_, index) => ({
-  title: `Award Title ${index + 1}`,
-  description: `This is a description for Award ${index + 1}. It highlights the significance of the achievement and honors the recipient's exceptional contributions.`,
-  image: "/images/Award/award-1.jpeg",
-}));
+const awards = [
+  {
+    title: "Excellence in Arts Award",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Award/award-1.jpeg",
+  },
+  {
+    title: "Lifetime Achievement Award",
+    description: "Honored for a remarkable career filled with impactful achievements and lasting legacy in the entertainment industry.",
+    image: "/images/Award/award-2.jpg",
+  },
+  {
+    title: "Rising Star of the Year",
+    description: "Celebrating emerging talent and exceptional promise in the world of cinema and theater.",
+    image: "/images/Award/award-3.jpg",
+  },
+];
 
-const honors = Array.from({ length: 9 }, (_, index) => ({
-  title: `Honor Title ${index + 1}`,
-  description: `This is a description for Honor ${index + 1}. It showcases the recognition received for remarkable efforts in the respective field.`,
-  image: index % 2 === 0 ? "/images/Honor/honor-1.jpg" : "/images/Honor/honor-2.jpg",
-}));
+const honors = [
+  {
+    title: "NEFTA",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/nefta.jpg",
+  },
+  {
+    title: "NEPAL ARMY I",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/nepal-army1.jpg",
+  },
+  {
+    title: "NEPAL ARMY II",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/nepal-army2.jpg",
+  },
+  {
+    title: "NEPAL ARMY III",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/nepal-army3.jpg",
+  },
+  {
+    title: "GLOBAL NEPAL",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/global-nepal.jpg",
+  },
+  {
+    title: "PARIWARTAN",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/pariwartan-nepal.jpg",
+  },
+  {
+    title: "FILM DEVELOPMENT BOARD",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/fdb.jpg",
+  },
+  {
+    title: "FILM FESTIVAL",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/filmfest.jpg",
+  },
+  {
+    title: "INAS",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/inas.jpg",
+  },
+  {
+    title: "ARMY",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/army.jpeg",
+  },
+  {
+    title: "ACTRESS HONOR",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/actresshonor.JPG",
+  },
+  {
+    title: "ACTRESS HONOR II",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/actresshonor2.JPG",
+  },
+  {
+    title: "EVEREST",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/everest-1.jpg",
+  },
+  {
+    title: "WOMENS DAY",
+    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    image: "/images/Honor/womensday.jpeg",
+  },
+];
 
 const AwardPage = () => {
   const [activeSection, setActiveSection] = useState("Awards");
@@ -54,15 +133,18 @@ const AwardPage = () => {
     <Box
       sx={{
         padding: "100px 10%",
+        color: "#FBFBF3",
         backgroundColor: "#262528",
-        color: "#fff",
         minHeight: "100vh",
-        overflow: "hidden",
+        fontFamily: "'Poppins', sans-serif",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
       }}
     >
       {/* Header */}
       <Box sx={{ textAlign: "center", marginBottom: "30px" }}>
-        <Typography variant="h3" sx={{ fontWeight: "bold", color: "#CDBFA7" }}>
+        <Typography variant="h3" sx={{ fontWeight: "bold", fontSize: "50px", color: "#CDBFA7" }}>
           HONORS & AWARDS
         </Typography>
       </Box>
@@ -73,7 +155,7 @@ const AwardPage = () => {
           display: "flex",
           justifyContent: "center",
           gap: "20px",
-          marginBottom: "30px",
+          marginBottom: "40px",
         }}
       >
         <Button
@@ -131,6 +213,8 @@ const AwardPage = () => {
                 borderRadius: "10px",
                 overflow: "hidden",
                 boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
+                width: "100%",
+                height: "550px",
               }}
             >
               <img
@@ -138,8 +222,9 @@ const AwardPage = () => {
                 alt={item.title}
                 style={{
                   width: "100%",
-                  height: "auto",
+                  height: "100%",
                   display: "block",
+                  objectFit: "cover",
                 }}
               />
             </Box>
@@ -175,7 +260,7 @@ const AwardPage = () => {
         <div
           style={{
             position: "fixed",
-            top: 30,
+            top: 40,
             left: 0,
             width: "100%",
             height: "100%",

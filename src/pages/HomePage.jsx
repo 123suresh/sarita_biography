@@ -129,10 +129,10 @@ const HomePage = () => {
           }}
         >
           {[
-            { href: "https://www.facebook.com", icon: "/icon/fb.png", alt: "Facebook" },
-            { href: "https://www.instagram.com", icon: "/icon/ig.png", alt: "Instagram" },
-            { href: "https://www.tiktok.com", icon: "/icon/tk.png", alt: "Tiktok" },
-            { href: "https://www.youtube.com", icon: "/icon/yt.png", alt: "Youtube" },
+            { href: "https://www.facebook.com/sarita.lamichhane.1481", icon: "/icon/fb.png", alt: "Facebook" },
+            { href: "https://www.instagram.com/sarita.lamichhane.1481", icon: "/icon/ig.png", alt: "Instagram" },
+            { href: "https://www.tiktok.com/@saritalamichhane5555?lang=en", icon: "/icon/tk.png", alt: "Tiktok" },
+            { href: "https://www.imdb.com/user/ur192640391/?ref_=ext_shr_lnk", icon: "/icon/imdb.png", alt: "IMDB" },
           ].map((social, index) => (
             <a
               key={index}

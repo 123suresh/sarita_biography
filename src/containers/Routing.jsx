@@ -8,7 +8,7 @@ import PressPage from "../pages/PressPage";
 import AboutMe from "../pages/AboutMe";
 import Contact from "../pages/Contact";
 import PageNotFound from "../pages/PageNotFound";
-import Gallary from "../pages/Gallary";
+import Gallery from "../pages/Gallery";
 
 function Routing() {
   return (
@@ -18,7 +18,7 @@ function Routing() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutMe />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/gallary" element={<Gallary />} />
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="/detail" element={<DetailPage />} />
           <Route path="/awards" element={<AwardPage />} />
           <Route path="/press" element={<PressPage />} />

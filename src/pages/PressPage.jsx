@@ -1,12 +1,143 @@
 import React, { useState } from "react";
 
-const images = [
-  "/images/Gallary/img1.jpeg",
-  "/images/Gallary/img2.jpeg",
-  "/images/Gallary/img3.jpg",
-  "/images/Gallary/img4.jpeg",
-  "/images/Gallary/img5.jpeg",
-  "/images/Gallary/img6.jpeg",
+// Create an array of objects with image paths, titles, and descriptions
+const imageData = [
+  {
+    src: `/images/Press/img1.jpg`,
+    title: "Nari Sakti - Annapurna Post",
+    description: "Highlighting the empowerment of women in a feature by Annapurna Post.",
+  },
+  {
+    src: `/images/Press/img2.jpg`,
+    title: "Cover Story - Glam Nepal",
+    description: "Exclusive cover story showcasing elegance and achievements.",
+  },
+  {
+    src: `/images/Press/img3.jpg`,
+    title: "Feature Article - The Rising Nepal",
+    description: "An in-depth look into career milestones and inspirations.",
+  },
+  {
+    src: `/images/Press/img4.jpg`,
+    title: "Award Night Coverage",
+    description: "Celebrating a proud moment at the prestigious awards ceremony.",
+  },
+  {
+    src: `/images/Press/img5.jpg`,
+    title: "Spotlight - Entertainment Weekly",
+    description: "A captivating interview on life and aspirations.",
+  },
+  {
+    src: `/images/Press/img6.jpg`,
+    title: "Filmfare Feature",
+    description: "Recognition of outstanding performances in film and television.",
+  },
+  {
+    src: `/images/Press/img7.jpg`,
+    title: "Cultural Ambassador Highlight",
+    description: "A feature on promoting culture and heritage on international platforms.",
+  },
+  {
+    src: `/images/Press/img8.jpg`,
+    title: "Red Carpet Look",
+    description: "Turning heads at the red carpet event with a stunning appearance.",
+  },
+  {
+    src: `/images/Press/img9.jpg`,
+    title: "Inspirational Journey",
+    description: "A piece detailing the journey from dreams to reality.",
+  },
+  {
+    src: `/images/Press/img11.jpg`,
+    title: "Exclusive Photoshoot",
+    description: "Behind the scenes of a glamorous photoshoot.",
+  },
+  {
+    src: `/images/Press/img12.jpg`,
+    title: "Exclusive Photoshoot",
+    description: "Behind the scenes of a glamorous photoshoot.",
+  },
+  {
+    src: `/images/Press/img13.jpg`,
+    title: "Exclusive Photoshoot",
+    description: "Behind the scenes of a glamorous photoshoot.",
+  },
+  {
+    src: `/images/Press/img14.jpg`,
+    title: "Exclusive Photoshoot",
+    description: "Behind the scenes of a glamorous photoshoot.",
+  },
+  {
+    src: `/images/Press/img15.jpg`,
+    title: "Exclusive Photoshoot",
+    description: "Behind the scenes of a glamorous photoshoot.",
+  },
+  {
+    src: `/images/Press/img16.jpg`,
+    title: "Exclusive Photoshoot",
+    description: "Behind the scenes of a glamorous photoshoot.",
+  },
+  {
+    src: `/images/Press/img17.jpg`,
+    title: "Exclusive Photoshoot",
+    description: "Behind the scenes of a glamorous photoshoot.",
+  },
+  {
+    src: `/images/Press/img18.jpg`,
+    title: "Exclusive Photoshoot",
+    description: "Behind the scenes of a glamorous photoshoot.",
+  },
+  {
+    src: `/images/Press/img19.jpg`,
+    title: "Exclusive Photoshoot",
+    description: "Behind the scenes of a glamorous photoshoot.",
+  },
+  {
+    src: `/images/Press/img20.jpg`,
+    title: "Exclusive Photoshoot",
+    description: "Behind the scenes of a glamorous photoshoot.",
+  },
+  {
+    src: `/images/Press/img21.jpg`,
+    title: "Exclusive Photoshoot",
+    description: "Behind the scenes of a glamorous photoshoot.",
+  },
+  {
+    src: `/images/Press/img22.jpg`,
+    title: "Exclusive Photoshoot",
+    description: "Behind the scenes of a glamorous photoshoot.",
+  },
+  {
+    src: `/images/Press/img23.jpg`,
+    title: "Exclusive Photoshoot",
+    description: "Behind the scenes of a glamorous photoshoot.",
+  },
+  {
+    src: `/images/Press/img24.jpg`,
+    title: "Exclusive Photoshoot",
+    description: "Behind the scenes of a glamorous photoshoot.",
+  },
+  {
+    src: `/images/Press/img25.jpg`,
+    title: "Exclusive Photoshoot",
+    description: "Behind the scenes of a glamorous photoshoot.",
+  },
+  {
+    src: `/images/Press/img26.jpg`,
+    title: "Exclusive Photoshoot",
+    description: "Behind the scenes of a glamorous photoshoot.",
+  },
+  {
+    src: `/images/Press/img27.jpg`,
+    title: "Exclusive Photoshoot",
+    description: "Behind the scenes of a glamorous photoshoot.",
+  },
+  {
+    src: `/images/Press/img28.jpg`,
+    title: "Exclusive Photoshoot",
+    description: "Behind the scenes of a glamorous photoshoot.",
+  },
+  // Add similarly unique entries for images 11 to 28
 ];
 
 function PressPage() {
@@ -28,11 +159,11 @@ function PressPage() {
   const handleSlideshowNavigation = (direction) => {
     if (direction === "left") {
       setCurrentImageIndex((prev) =>
-        prev === 0 ? images.length - 1 : prev - 1
+        prev === 0 ? imageData.length - 1 : prev - 1
       );
     } else if (direction === "right") {
       setCurrentImageIndex((prev) =>
-        prev === images.length - 1 ? 0 : prev + 1
+        prev === imageData.length - 1 ? 0 : prev + 1
       );
     }
   };
@@ -53,37 +184,27 @@ function PressPage() {
       {/* Header */}
       <h1
         style={{
-          fontSize: "60px",
-          marginBottom: "20px",
+          fontSize: "50px",
+          marginTop: "10px",
+          marginBottom: "30px",
           textAlign: "center",
           color: "#CDBFA7 ",
           animation: "fadeInDown 1s ease-in-out",
         }}
       >
-        News & Articles
+        PUBLICATIONS
       </h1>
-      <p
-        style={{
-          fontSize: "20px",
-          marginBottom: "40px",
-          textAlign: "center",
-          color: "#BFBFBF",
-          animation: "fadeInUp 1s ease-in-out",
-        }}
-      >
-        Stay updated with the latest news and stories from around the world.
-      </p>
-
+      
       {/* Image Grid */}
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))",
           gap: "20px",
           width: "100%",
         }}
       >
-        {images.map((image, index) => (
+        {imageData.map((image, index) => (
           <div
             key={index}
             style={{
@@ -98,11 +219,11 @@ function PressPage() {
             onClick={() => openSlideshow(index)}
           >
             <img
-              src={image}
-              alt={`News ${index + 1}`}
+              src={image.src}
+              alt={image.title}
               style={{
                 width: "100%",
-                height: "300px",
+                height: "100%",
                 objectFit: "cover",
                 transition: "transform 0.3s ease",
               }}
@@ -120,8 +241,16 @@ function PressPage() {
                 textAlign: "center",
               }}
             >
-              <h3 style={{ fontSize: "18px", margin: "0" }}>Article Title</h3>
-              <p style={{ fontSize: "14px", margin: "5px 0 0" }}>Brief Description</p>
+              <h3 style={{ fontSize: "18px", margin: "0" }}>{image.title}</h3>
+              <p
+                style={{
+                  fontSize: "14px",
+                  margin: "5px 0 0",
+                  fontStyle: "italic",
+                }}
+              >
+                {image.description}
+              </p>
             </div>
           </div>
         ))}
@@ -132,7 +261,7 @@ function PressPage() {
         <div
           style={{
             position: "fixed",
-            top: 0,
+            top: 40,
             left: 0,
             width: "100%",
             height: "100%",
@@ -166,8 +295,8 @@ function PressPage() {
 
           {/* Image */}
           <img
-            src={images[currentImageIndex]}
-            alt="Slideshow"
+            src={imageData[currentImageIndex].src}
+            alt={imageData[currentImageIndex].title}
             style={{
               maxWidth: "80%",
               maxHeight: "80%",
