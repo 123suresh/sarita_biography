@@ -6,26 +6,33 @@ const Contact = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
-
+  
+    const name = form.current['name'].value.trim();
+    const email = form.current['email'].value.trim();
+    const message = form.current['message'].value.trim();
+  
+    if (!name || !email || !message) {
+      alert('Please fill in all fields.');
+      return;
+    }
+  
     emailjs
       .sendForm(
-        "service_enfxjqm", // Replace with your EmailJS service ID
-        "template_u0gnfof", // Replace with your EmailJS template ID
+        "service_c8vkmmf",
+        "template_fo17p7d",
         form.current,
-        "DSxH9uZC6q-Ul9bpk" // Replace with your EmailJS public key
+        "DSxH9uZC6q-Ul9bpk"
       )
       .then(
         (result) => {
           alert("Message sent successfully!");
-          console.log(result.text);
           e.target.reset();
         },
         (error) => {
           alert("Failed to send message, please try again later.");
-          console.log(error.text);
         }
       );
-  };
+  };  
 
   return (
     <div

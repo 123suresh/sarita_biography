@@ -4,138 +4,167 @@ import React, { useState } from "react";
 const imageData = [
   {
     src: `/images/Press/img1.jpg`,
-    title: "Nari Sakti - Annapurna Post",
-    description: "Highlighting the empowerment of women in a feature by Annapurna Post.",
+    title: "EFCU Brand Ambassador",
   },
   {
     src: `/images/Press/img2.jpg`,
-    title: "Cover Story - Glam Nepal",
-    description: "Exclusive cover story showcasing elegance and achievements.",
+    title: "Sarita, who brings the character to life",
   },
   {
     src: `/images/Press/img3.jpg`,
-    title: "Feature Article - The Rising Nepal",
-    description: "An in-depth look into career milestones and inspirations.",
+    title: "Living Only as an Artist Can Shorten Life",
   },
   {
     src: `/images/Press/img4.jpg`,
-    title: "Award Night Coverage",
-    description: "Celebrating a proud moment at the prestigious awards ceremony.",
+    title: "Feature Article - Kamana",
+  },
+  {
+    src: `/images/Press/img47.JPG`,
+    title: "American Bank Everest Brand Ambassador",
   },
   {
     src: `/images/Press/img5.jpg`,
-    title: "Spotlight - Entertainment Weekly",
-    description: "A captivating interview on life and aspirations.",
+    title: "Sarita's Courage I",
   },
   {
     src: `/images/Press/img6.jpg`,
-    title: "Filmfare Feature",
-    description: "Recognition of outstanding performances in film and television.",
+    title: "Honored with the Army Commendation Badge",
   },
   {
     src: `/images/Press/img7.jpg`,
-    title: "Cultural Ambassador Highlight",
-    description: "A feature on promoting culture and heritage on international platforms.",
+    title: "Sarita's Courage II",
   },
   {
     src: `/images/Press/img8.jpg`,
-    title: "Red Carpet Look",
-    description: "Turning heads at the red carpet event with a stunning appearance.",
+    title: "Sarita's Courage III",
   },
   {
     src: `/images/Press/img9.jpg`,
-    title: "Inspirational Journey",
-    description: "A piece detailing the journey from dreams to reality.",
+    title: "The Future of My Children is My Happiness",
   },
   {
     src: `/images/Press/img11.jpg`,
-    title: "Exclusive Photoshoot",
-    description: "Behind the scenes of a glamorous photoshoot.",
+    title: "Kamana Magazine",
   },
   {
     src: `/images/Press/img12.jpg`,
-    title: "Exclusive Photoshoot",
-    description: "Behind the scenes of a glamorous photoshoot.",
+    title: "I Don't Hate Politics",
   },
   {
     src: `/images/Press/img13.jpg`,
-    title: "Exclusive Photoshoot",
-    description: "Behind the scenes of a glamorous photoshoot.",
+    title: "He Does Not Give Me Gifts",
   },
   {
     src: `/images/Press/img14.jpg`,
-    title: "Exclusive Photoshoot",
-    description: "Behind the scenes of a glamorous photoshoot.",
+    title: "NEFTA Award in Dubai A Good Sign",
   },
   {
     src: `/images/Press/img15.jpg`,
-    title: "Exclusive Photoshoot",
-    description: "Behind the scenes of a glamorous photoshoot.",
+    title: "Emotive Artiste",
   },
   {
     src: `/images/Press/img16.jpg`,
-    title: "Exclusive Photoshoot",
-    description: "Behind the scenes of a glamorous photoshoot.",
+    title: "Sarita in Seven Serials",
   },
   {
     src: `/images/Press/img17.jpg`,
-    title: "Exclusive Photoshoot",
-    description: "Behind the scenes of a glamorous photoshoot.",
+    title: "Sarita's Parichaya",
   },
   {
     src: `/images/Press/img18.jpg`,
-    title: "Exclusive Photoshoot",
-    description: "Behind the scenes of a glamorous photoshoot.",
+    title: "The Audience's Desire is Sarita's Goal",
   },
   {
     src: `/images/Press/img19.jpg`,
-    title: "Exclusive Photoshoot",
-    description: "Behind the scenes of a glamorous photoshoot.",
+    title: "Naya Newspaper Article",
   },
   {
     src: `/images/Press/img20.jpg`,
-    title: "Exclusive Photoshoot",
-    description: "Behind the scenes of a glamorous photoshoot.",
+    title: "Love for Acting",
   },
   {
     src: `/images/Press/img21.jpg`,
-    title: "Exclusive Photoshoot",
-    description: "Behind the scenes of a glamorous photoshoot.",
+    title: "Film News",
   },
   {
     src: `/images/Press/img22.jpg`,
-    title: "Exclusive Photoshoot",
-    description: "Behind the scenes of a glamorous photoshoot.",
+    title: "Dristi Magazine",
   },
   {
     src: `/images/Press/img23.jpg`,
-    title: "Exclusive Photoshoot",
-    description: "Behind the scenes of a glamorous photoshoot.",
+    title: "Our Civilized Love Will Endure",
   },
   {
     src: `/images/Press/img24.jpg`,
-    title: "Exclusive Photoshoot",
-    description: "Behind the scenes of a glamorous photoshoot.",
-  },
-  {
-    src: `/images/Press/img25.jpg`,
-    title: "Exclusive Photoshoot",
-    description: "Behind the scenes of a glamorous photoshoot.",
-  },
-  {
-    src: `/images/Press/img26.jpg`,
-    title: "Exclusive Photoshoot",
-    description: "Behind the scenes of a glamorous photoshoot.",
-  },
-  {
-    src: `/images/Press/img27.jpg`,
-    title: "Exclusive Photoshoot",
-    description: "Behind the scenes of a glamorous photoshoot.",
+    title: "Rejected 18 Films After Release",
   },
   {
     src: `/images/Press/img28.jpg`,
-    title: "Exclusive Photoshoot",
-    description: "Behind the scenes of a glamorous photoshoot.",
+    title: "I feel like living as a filmmaker rather than a political person",
+  },
+  {
+    src: `/images/Press/img29.jpg`,
+    title: "Rajdhani Newspaper",
+  },
+  {
+    src: `/images/Press/img30.jpg`,
+    title: "Sarita's Fitness",
+  },
+  {
+    src: `/images/Press/img32.jpg`,
+    title: "Sarita's Desire for a Grand Dream",
+  },
+  {
+    src: `/images/Press/img33.jpg`,
+    title: "Timeout Article",
+  },
+  {
+    src: `/images/Press/img34.jpg`,
+    title: "Desire to Own a Dog",
+  },
+  {
+    src: `/images/Press/img35.jpg`,
+    title: "Freedom for Liberation",
+  },
+  {
+    src: `/images/Press/img36.jpg`,
+    title: "Sarita with her Daughter",
+  },
+  {
+    src: `/images/Press/img37.jpg`,
+    title: "Tihar Festival Opinion",
+  },
+  {
+    src: `/images/Press/img38.jpg`,
+    title: "Simple Sarita",
+  },
+  {
+    src: `/images/Press/img39.jpg`,
+    title: "Glamour of Sarita",
+  },
+  {
+    src: `/images/Press/img40.jpg`,
+    title: "Path to Success",
+  },
+  {
+    src: `/images/Press/img41.jpg`,
+    title: "Gazzab Newspaper",
+  },
+  {
+    src: `/images/Press/img42.jpg`,
+    title: "Friday Face Magazine",
+  },
+  {
+    src: `/images/Press/img43.jpg`,
+    title: "Filmy News",
+  },
+  {
+    src: `/images/Press/img45.jpg`,
+    title: "Serial Queen Sarita",
+  },
+  {
+    src: `/images/Press/img46.jpg`,
+    title: "FAAN Award Announcement",
   },
   // Add similarly unique entries for images 11 to 28
 ];

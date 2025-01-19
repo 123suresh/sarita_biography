@@ -3,92 +3,127 @@ import { Box, Typography, Button, Grid } from "@mui/material";
 
 const awards = [
   {
-    title: "Excellence in Arts Award",
-    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    title: "12th Nepal Africa Film Festival (NAFF) 2024",
+    description: "Best Actress Award for Movie Sorry Mom",
     image: "/images/Award/award-1.jpeg",
   },
   {
-    title: "Lifetime Achievement Award",
-    description: "Honored for a remarkable career filled with impactful achievements and lasting legacy in the entertainment industry.",
-    image: "/images/Award/award-2.jpg",
+    title: "Nepal Short Film Award 2023",
+    description: "Best Actress Award for Short Movie Prabasi Jiwan",
+    image: "/images/Award/award-3.jpg",
   },
   {
-    title: "Rising Star of the Year",
-    description: "Celebrating emerging talent and exceptional promise in the world of cinema and theater.",
-    image: "/images/Award/award-3.jpg",
+    title: "National Box Office Tele Film Award 2020",
+    description: "Best Actress Award for Tele Serial Dristi",
+    image: "/images/Award/award-2.jpg",
   },
 ];
 
 const honors = [
   {
-    title: "NEFTA",
-    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    title: "9th NEFTA Film Award 2016",
+    description: "Nepal Film Technician Association (NEFTA) Certification of Appreciation as Jury Member",
     image: "/images/Honor/nefta.jpg",
   },
   {
-    title: "NEPAL ARMY I",
-    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    title: "Short Film Competition-2076 (2020)",
+    description: "Token of Appreciation from Nepal Army",
     image: "/images/Honor/nepal-army1.jpg",
   },
   {
-    title: "NEPAL ARMY II",
-    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    title: "Laghu Film Competition-2078 (2021)",
+    description: "Token of Appreciation from Nepal Army",
     image: "/images/Honor/nepal-army2.jpg",
   },
   {
-    title: "NEPAL ARMY III",
-    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    title: "Laghu Film Competition-2079 (2022)",
+    description: "Token of Appreciation from Nepal Army",
     image: "/images/Honor/nepal-army3.jpg",
   },
   {
-    title: "GLOBAL NEPAL",
-    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    title: "5th ATA Everest Global Nepali Film Award-2022",
+    description: "Certification of Appreciation for 5th ATA Everest Global Nepali Film Award 2022 Held in Denver Co. USA",
     image: "/images/Honor/global-nepal.jpg",
   },
   {
-    title: "PARIWARTAN",
-    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    title: "Pariwartan Nepal",
+    description: "Certificate of Appreciation from Pariwartan Nepal",
     image: "/images/Honor/pariwartan-nepal.jpg",
   },
   {
-    title: "FILM DEVELOPMENT BOARD",
-    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    title: "Film Development Board Nepal",
+    description: "Certificate of Appreciation from Film Development Board Nepal",
     image: "/images/Honor/fdb.jpg",
   },
   {
-    title: "FILM FESTIVAL",
-    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    title: "12th Nepal Africa Film Festival (NAFF) 2024",
+    description: "Moment Captured in 12th Nepal Africa Film Festival as Best Actress for Movie Sorry Mom",
     image: "/images/Honor/filmfest.jpg",
   },
   {
-    title: "INAS",
-    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    title: "3rd INAS Nepali Film Award 2014",
+    description: "Certificate of Appriciation from INAS for Jury",
     image: "/images/Honor/inas.jpg",
   },
   {
-    title: "ARMY",
-    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    title: "Laghu Film Competition-2079 (2022)",
+    description: "Moment Captured while receiving Certificate of Appriciation from Nepal Army",
     image: "/images/Honor/army.jpeg",
   },
   {
-    title: "ACTRESS HONOR",
-    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    title: "National Actress Appriciation-2080 (2023)",
+    description: "Certificate of Appriciation from Rose Beauty Academy",
     image: "/images/Honor/actresshonor.JPG",
   },
   {
-    title: "ACTRESS HONOR II",
-    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    title: "National Actress Appriciation-2080 (2023)",
+    description: "Moment Captured while receiving National Actress Appreciation-2080 ",
     image: "/images/Honor/actresshonor2.JPG",
   },
   {
-    title: "EVEREST",
-    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    title: "Everest Federal Credit Union Brand Ambassador",
+    description: "Certificate of Brand Ambassador from Everest Federal Credit Union",
     image: "/images/Honor/everest-1.jpg",
   },
   {
-    title: "WOMENS DAY",
-    description: "Recognized for outstanding contributions to the performing arts and dedication to cultural enrichment.",
+    title: "113th Internatinal Womens Day",
+    description: "Certificate of Appreciation on 113th Internationl Womens Day",
     image: "/images/Honor/womensday.jpeg",
+  },
+  {
+    title: "Leadership Development & Role of Film Sector for Women Empowerment",
+    description: "Certificate of Appreciation from Film Development Board Nepal",
+    image: "/images/Honor/fdb-2.jpg",
+  },
+  {
+    title: "Member of the Jury at National Film Award 2015",
+    description: "Certificate of Appreciation from Film Development Board Nepal",
+    image: "/images/Honor/fdb-3.jpg",
+  },
+  {
+    title: "33rd Nepal Television Annual Function",
+    description: "Certificate of Appreciation from Nepal Television",
+    image: "/images/Honor/womensday.jpeg",
+  },
+  {
+    title: "Gaijatra Comedy Challenge",
+    description: "Certificate of Appreciation from Radio Annapurna Nepal",
+    image: "/images/Honor/radio.jpg",
+  },
+  {
+    title: "Civic Engagement Video Series, Chaso",
+    description: "Certificate of Appreciation from Government of Nepal & USAID",
+    image: "/images/Honor/usaid.jpg",
+  },
+  {
+    title: "2nd FAAN Award 2073",
+    description: "Certificate of Appreciation from FAAN Award",
+    image: "/images/Honor/faan2.jpg",
+  },
+  {
+    title: "FAAM Award 2072",
+    description: "Certificate of Appreciation from FAAN Award",
+    image: "/images/Honor/faan.jpg",
   },
 ];
 

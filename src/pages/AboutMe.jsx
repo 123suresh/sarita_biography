@@ -92,7 +92,7 @@ function AboutMe() {
         </h1>
         <p
           style={{
-            fontSize: "22px",
+            fontSize: "18px",
             lineHeight: "1.8",
             marginBottom: "40px",
             color: "#fff",
@@ -102,11 +102,16 @@ function AboutMe() {
             animation: "fadeInText 2s ease-out 0.5s", // Staggered fade-in for the paragraph
           }}
         >
-          I am Sarita Lamichhane, an actress, artist, and media personality.
-          With over 20 years of experience in the entertainment industry, I
-          have passionately dedicated my career to storytelling through acting,
-          directing, and producing. Here, you can learn more about my journey,
-          accomplishments, and ongoing projects.
+          For over two decades, I have been shaping stories that connect, inspire, and provoke thought. 
+          My journey in Nepal’s television and film industry began with Mukti in 1999, evolving into a 
+          career marked by lead roles in iconic productions like Parichaya, celebrated for its record-breaking 
+          success. Beyond the screen, I’ve embraced storytelling as a tool for change—whether raising awareness 
+          about disabilities in Sita, child abuse in Bhumika, or advocating for anti-corruption in Sapanako Mahal. 
+          Each project has been a chance to blend art with purpose, using media to educate and empower. Honored with 
+          awards like the Nepal Africa Film Award and the Nepal Film Development Board Honor, I continue to seek roles and 
+          projects that challenge perspectives and leave lasting impacts. For me, storytelling is more than 
+          entertainment—it’s a bridge to empathy, understanding, and change. Welcome to a world where art finds purpose, 
+          and stories leave their mark.
         </p>
       </div>
 
